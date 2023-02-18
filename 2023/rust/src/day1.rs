@@ -8,18 +8,33 @@ pub fn day1(test: bool) {
         input = utils::read_input(1);
     }
 
-    let elves = input.split("\n\n");
-    
-    let mut max = 0;
-    for e in elves {
+    let mut elves = Vec::new();
+    for e in input.split("\n\n") {
         let mut calories = 0;
         let snacks = e.split("\n");
         for s in snacks {
             calories += s.parse::<i32>().unwrap();
         }
-        if calories > max {
-            max = calories;
-        }
+        elves.push(calories);
     }
-    println!("{max}");
+
+    let mut max: i32;
+    {
+        let part1 = elves.iter().max().unwrap();
+        max = part1.clone();
+        println!("{part1}");
+    }
+
+    let mut i = 0;
+    let mut part2 = max.clone();
+    while i < 2 {
+        let index = elves.iter().position(|&r| r == max).unwrap();
+        elves.remove(index);
+        max = *(elves.iter().max().unwrap());
+        part2 += max ;
+        i += 1;
+    }
+
+    println!("{part2}");
 }
+
