@@ -1,6 +1,7 @@
 use std::env;
 
 pub mod day1;
+pub mod day2;
 pub mod utils;
 
 fn main() {
@@ -12,8 +13,11 @@ fn main() {
     } else {
         test = false;
     }
-    if day == "1" {
+    if day == "1" || day == "all" {
        day1::day1(test);
+    } 
+    if day == "2" || day == "all" {
+       day2::day2(test);
     }
 }
 
