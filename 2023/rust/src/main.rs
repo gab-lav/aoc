@@ -3,6 +3,7 @@ use std::env;
 pub mod day1;
 pub mod day2;
 pub mod day3;
+pub mod day4;
 pub mod utils;
 
 fn main() {
@@ -22,6 +23,9 @@ fn main() {
     }
     if day == "3" || day == "all" {
        day3::day3(test);
+    }
+    if day == "4" || day == "all" {
+       day4::day4(test);
     }
 }
 
