@@ -6,6 +6,8 @@ pub mod day3;
 pub mod day4;
 pub mod day5;
 pub mod day6;
+pub mod day7;
+pub mod day8;
 pub mod utils;
 
 fn main() {
@@ -41,6 +43,15 @@ fn main() {
         println!("Day 6");
         day6::day6(test);
     }
+    if day == "7" || day == "all" {
+        println!("Day 7");
+        day7::day7(test);
+    }
+    if day == "8" || day == "all" {
+        println!("Day 8");
+        day8::day8(test);
+    }
+
 }
 
 
