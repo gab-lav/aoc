@@ -10,6 +10,7 @@ pub mod day6;
 pub mod day7;
 pub mod day8;
 pub mod day9;
+pub mod day10;
 pub mod utils;
 
 fn main() {
@@ -73,6 +74,12 @@ fn main() {
         println!("Day 9");
         let now = Instant::now();
         day9::day9(test);
+        println!("{}ms\n===============", now.elapsed().as_millis());
+    }
+    if day == "10" || day == "all" {
+        println!("Day 10");
+        let now = Instant::now();
+        day10::day10(test);
         println!("{}ms\n===============", now.elapsed().as_millis());
     }
 
