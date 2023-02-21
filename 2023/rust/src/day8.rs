@@ -34,7 +34,7 @@ pub fn day8(test: bool) {
 }
 
 fn is_tree_visible(i: usize, j: usize, grid: &Vec<&str> ) -> bool{
-    let mut tree = grid[i].chars().nth(j).unwrap().to_digit(10).unwrap();
+    let tree = grid[i].chars().nth(j).unwrap().to_digit(10).unwrap();
     let mut vis_up = true;
     let mut vis_down = true;
     let mut vis_left = true;
@@ -46,7 +46,7 @@ fn is_tree_visible(i: usize, j: usize, grid: &Vec<&str> ) -> bool{
             break;
         }
     }
-    for n in (i+1..grid.len()){
+    for n in i+1..grid.len(){
         let new_tree = grid[n].chars().nth(j).unwrap().to_digit(10).unwrap();
         if new_tree >= tree {
             vis_down = false;
@@ -60,7 +60,7 @@ fn is_tree_visible(i: usize, j: usize, grid: &Vec<&str> ) -> bool{
             break;
         }
     }
-    for n in (j+1..grid[0].len()) {
+    for n in j+1..grid[0].len() {
         let new_tree = grid[i].chars().nth(n).unwrap().to_digit(10).unwrap();
         if new_tree >= tree {
             vis_right = false;
@@ -72,7 +72,7 @@ fn is_tree_visible(i: usize, j: usize, grid: &Vec<&str> ) -> bool{
 }
 
 fn visibility_score(i: usize, j: usize, grid: &Vec<&str> ) -> i32{
-    let mut tree = grid[i].chars().nth(j).unwrap().to_digit(10).unwrap();
+    let tree = grid[i].chars().nth(j).unwrap().to_digit(10).unwrap();
     let mut score_up = 0;
     let mut score_down = 0;
     let mut score_left = 0;
@@ -85,7 +85,7 @@ fn visibility_score(i: usize, j: usize, grid: &Vec<&str> ) -> i32{
             break;
         }
     }
-    for n in (i+1..grid.len()){
+    for n in i+1..grid.len(){
         score_down += 1;
         let new_tree = grid[n].chars().nth(j).unwrap().to_digit(10).unwrap();
         if new_tree >= tree {
@@ -99,7 +99,7 @@ fn visibility_score(i: usize, j: usize, grid: &Vec<&str> ) -> i32{
             break;
         }
     }
-    for n in (j+1..grid[0].len()) {
+    for n in j+1..grid[0].len() {
         score_right += 1;
         let new_tree = grid[i].chars().nth(n).unwrap().to_digit(10).unwrap();
         if new_tree >= tree {

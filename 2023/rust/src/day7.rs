@@ -1,13 +1,8 @@
 use crate::utils;
 
-struct File {
-    name: String,
-    size: u32
-}
-
 struct Directory{
     name: String,
-    files: Vec<File>,
+    files: Vec<u32>,
     subdirs: Vec<String>
 }
 
@@ -78,7 +73,7 @@ fn get_directory_size(name: &str, dirs: &Vec<Directory>) -> u32 {
             let files = &d.files;
             let subdirs = &d.subdirs;
             for f in files {
-                size += f.size;
+                size += f;
             }
             for s in subdirs {
                 size += get_directory_size(&s, dirs)
@@ -123,8 +118,7 @@ fn decode_dir(result: &str, name: &str) -> Directory {
         if first == "dir" {
             dir.subdirs.push(String::from(name) + second + "/");
         } else {
-            dir.files.push(File { name: String::from(second), 
-                                  size: first.parse::<u32>().unwrap() });
+            dir.files.push(first.parse::<u32>().unwrap());
         }
     }
     return dir;

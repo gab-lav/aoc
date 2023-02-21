@@ -26,7 +26,7 @@ U 20");
         let dir = iter.next().unwrap();
         let cnt = iter.next().unwrap().parse::<i32>().unwrap();
 
-        for c in 0..cnt {
+        for _c in 0..cnt {
             let new_head = update_head(dir, &pos.0);
             let new_tail = update_tail(&new_head, &pos.1);
             pos = (new_head, new_tail);

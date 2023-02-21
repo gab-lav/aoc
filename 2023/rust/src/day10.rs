@@ -13,7 +13,7 @@ pub fn day10(test: bool) {
     let mut interesting_signals: Vec<i32> = Vec::new();
     let mut crt: Vec<Vec<char>> = Vec::new();
 
-    for n in 0..6 {
+    for _n in 0..6 {
         crt.push(Vec::new());
     } 
 
@@ -25,7 +25,6 @@ pub fn day10(test: bool) {
 
     for l in input.split("\n") {
         let mut add_active = false;
-        let check = false;
         { 
             let row = ((cycle - 1) / 40) as usize;
             let col = (cycle - 1) % 40;
@@ -47,7 +46,7 @@ pub fn day10(test: bool) {
             let op = l.split(" ").nth(1).unwrap().parse::<i32>().unwrap();
              { 
                 let row = ((cycle - 1) / 40) as usize;
-                let col = ((cycle - 1) % 40);
+                let col = (cycle - 1) % 40;
                 if col == x-1 || col == x || col == x+1 {
                     crt[row].push('#');
                 } else {
@@ -64,7 +63,6 @@ pub fn day10(test: bool) {
             if interesting_signals.contains(&cycle) {
                 part1 += cycle * x;
             }
-            add_active = false;
         }
     }
     println!("{}", part1);

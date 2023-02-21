@@ -62,16 +62,6 @@ move 1 from 1 to 2");
 
 } 
 
-fn print_position(pos : &Vec<Vec<char>>) {
-    for v in pos {
-        for b in v {
-            print!("{b} ");
-        }
-    println!("");
-    }
-    println!("==============================");
-}
-
 fn decode_operation(line: &str) -> (u32, u32, u32) {
     
     let mut iter = line.split(" ");
